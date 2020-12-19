@@ -20,7 +20,19 @@ class File{
             let urlString = dictionary["url"] as! String
             let baseURLString = "https://s3-us-west-2.amazonaws.com/android-task/"
             url = URL(string: baseURLString + urlString)!
-            createdDate = dictionary["uploadedAt"] as! String
+            
+            //convert milliseconds epoch time to date and time
+            let uploadedAtNum = dictionary["uploadedAt"] as! TimeInterval
+            let date = Date(timeIntervalSince1970: uploadedAtNum)
+            
+            // US English Locale (en_US)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = DateFormatter.Style.medium
+            dateFormatter.timeStyle = DateFormatter.Style.medium
+            dateFormatter.locale = NSLocale.current
+            let dateString = dateFormatter.string(from: date) // Dec 18, 2020
+            
+            createdDate = dateString
             
         }
         

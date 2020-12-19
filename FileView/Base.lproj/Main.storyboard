@@ -68,6 +68,12 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="rUr-Yy-tuF" secondAttribute="bottom" constant="10" id="xn6-mv-Xew"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="9mk-xY-ATP" id="ZmI-na-7z2"/>
+                                            <outlet property="descriptionLabel" destination="rUr-Yy-tuF" id="8UL-ag-x95"/>
+                                            <outlet property="filenameLabel" destination="eny-XU-2Nq" id="ylQ-S2-aus"/>
+                                            <outlet property="iconImageView" destination="Ugd-z9-viX" id="N66-aR-igV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

@@ -12,7 +12,7 @@ class FilesViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var filesTableView: UITableView!
     
     var filesArray: [File] = []
-    let baseURLstring = "https://s3-us-west-2.amazonaws.com/android-task/"
+    let URLstring = "https://us-central1-mobile-developer-challenge.cloudfunctions.net/listFiles"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class FilesViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func fetchFiles()
         {
-            let url = URL(string:baseURLstring)!
+            let url = URL(string:URLstring)!
             
             //getting data
             let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -58,16 +58,19 @@ class FilesViewController: UIViewController, UITableViewDataSource, UITableViewD
                     }
                 }
                 else if let data = data {
-                    let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-                    print(dataDictionary)
+                    let dataArray = try! JSONSerialization.jsonObject(with: data, options: []) as! NSArray
+                    print(dataArray)
                     
-                    let fileDictionaries = dataDictionary[""] as! [[String:Any]]
-                    self.filesArray = []
+                    //let fileDictionaries = dataDictionary[""] as! [[String:Any]]
+                    let filezArray = dataArray
                     
-                    for dictionary in fileDictionaries {
-                        let file = File(dictionary: dictionary)
-                        self.filesArray.append(file)
+                    for filez in filezArray {
+                        let file = filez as! [String:Any]
+                        let fileDictionary = File(dictionary: file)
+                        self.filesArray.append(fileDictionary)
+                        
                     }
+                    
                     
                     self.filesTableView.reloadData()
                     
@@ -78,12 +81,12 @@ class FilesViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3;
+        return self.filesArray.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilesCell", for: indexPath) as! FilesTableViewCell
-        
+        cell.file = filesArray[indexPath.row]
         return cell
     }
     
