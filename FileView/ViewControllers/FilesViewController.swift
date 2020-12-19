@@ -10,6 +10,7 @@ import UIKit
 class FilesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var filesTableView: UITableView!
+    @IBOutlet weak var filterSegControl: UISegmentedControl!
     
     var filesArray: [File] = []
     let URLstring = "https://us-central1-mobile-developer-challenge.cloudfunctions.net/listFiles"
@@ -19,6 +20,8 @@ class FilesViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         self.filesTableView.delegate = self
         self.filesTableView.dataSource = self
+        
+        self.filesTableView.tableFooterView = UIView()
         
         fetchFiles()
 
@@ -80,6 +83,8 @@ class FilesViewController: UIViewController, UITableViewDataSource, UITableViewD
             task.resume()
         }
     
+    //MARK:- Tableview methods
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.filesArray.count;
     }
@@ -91,11 +96,48 @@ class FilesViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let index = self.filesTableView.indexPathForSelectedRow{
+            self.filesTableView.deselectRow(at: index, animated: true)
+        }
+    }
+    
+
+    //MARK:- Filter method
+    //segmented control ibaction to sort the files based on filename and date
+    //it's functional, but it's hard to see since the file names are already sorted
+    //and all the dates are the same
+    @IBAction func filterSegmentedControl(_ sender: Any) {
+        switch filterSegControl.selectedSegmentIndex
+            {
+            case 0:
+               SortFilesByName()
+            case 1:
+                SortFilesByDate()
+            default:
+                break
+            }
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
             if let index = self.filesTableView.indexPathForSelectedRow{
                 self.filesTableView.deselectRow(at: index, animated: true)
             }
         }
+    
+    
+    //sorting tableview
+    
+    func SortFilesByName() {
+        filesArray.sorted() { $0.filename > $1.filename } // sort the file by name
+        filesTableView.reloadData(); // notify the table view the data has changed
+    }
+    
+    func SortFilesByDate() {
+        filesArray.sorted() { $0.createdDate > $1.createdDate } // sort the file by date
+        filesTableView.reloadData(); // notify the table view the data has changed
+    }
     
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
