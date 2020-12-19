@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		525720B2258DD3DE005F4B73 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525720B1258DD3DE005F4B73 /* PDFViewController.swift */; };
 		529A325A258DB21B00EE8ECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A3259258DB21B00EE8ECB /* AppDelegate.swift */; };
 		529A325C258DB21B00EE8ECB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A325B258DB21B00EE8ECB /* SceneDelegate.swift */; };
 		529A3261258DB21B00EE8ECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529A325F258DB21B00EE8ECB /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		525720B1258DD3DE005F4B73 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		529A3256258DB21B00EE8ECB /* FileView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		529A3259258DB21B00EE8ECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		529A325B258DB21B00EE8ECB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				529A326F258DB29500EE8ECB /* FilesViewController.swift */,
+				525720B1258DD3DE005F4B73 /* PDFViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				529A3276258DB9A800EE8ECB /* File.swift in Sources */,
 				529A325A258DB21B00EE8ECB /* AppDelegate.swift in Sources */,
 				529A3273258DB8B800EE8ECB /* FilesTableViewCell.swift in Sources */,
+				525720B2258DD3DE005F4B73 /* PDFViewController.swift in Sources */,
 				529A3270258DB29500EE8ECB /* FilesViewController.swift in Sources */,
 				529A325C258DB21B00EE8ECB /* SceneDelegate.swift in Sources */,
 			);

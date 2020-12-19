@@ -14,12 +14,14 @@ class FilesTableViewCell: UITableViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     
+   
     
     var file: File! {
             didSet {
                 filenameLabel.text = file.filename
                 descriptionLabel.text = file.description
                 dateLabel.text = file.createdDate
+             
                
             }
         }

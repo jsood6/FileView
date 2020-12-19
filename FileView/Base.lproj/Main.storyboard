@@ -70,11 +70,13 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="rUr-Yy-tuF" secondAttribute="bottom" constant="10" id="xn6-mv-Xew"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="dateLabel" destination="9mk-xY-ATP" id="ZmI-na-7z2"/>
                                             <outlet property="descriptionLabel" destination="rUr-Yy-tuF" id="8UL-ag-x95"/>
                                             <outlet property="filenameLabel" destination="eny-XU-2Nq" id="ylQ-S2-aus"/>
                                             <outlet property="iconImageView" destination="Ugd-z9-viX" id="N66-aR-igV"/>
+                                            <segue destination="0Pw-6A-ns2" kind="presentation" identifier="pdfSegue" id="7SI-Cr-kHH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -90,6 +92,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="79.6875"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EkE-PP-maK">
+            <objects>
+                <viewController id="0Pw-6A-ns2" customClass="PDFViewController" customModule="FileView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vqF-y4-TPc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5LC-EO-4A9" customClass="PDFView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Dfv-jo-o7k"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="pdfView" destination="5LC-EO-4A9" id="Wih-T0-vi4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OIc-4u-RZ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="779.71014492753625" y="91.741071428571431"/>
         </scene>
     </scenes>
     <resources>

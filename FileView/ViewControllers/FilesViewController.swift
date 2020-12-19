@@ -91,15 +91,26 @@ class FilesViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-
-    /*
-    // MARK: - Navigation
+    override func viewWillAppear(_ animated: Bool) {
+            if let index = self.filesTableView.indexPathForSelectedRow{
+                self.filesTableView.deselectRow(at: index, animated: true)
+            }
+        }
+    
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if(segue.identifier == "pdfSegue"){
+            let cell = sender as! UITableViewCell
+                    if let indexPath = filesTableView.indexPath(for: cell){
+                        let file = filesArray[indexPath.row]
+                        let pdfViewController = segue.destination as! PDFViewController
+                        pdfViewController.pdfFile = file
+                    }
+        }
     }
-    */
+    
+    
+
 
 }

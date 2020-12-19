@@ -18,8 +18,7 @@ class File{
             description = dictionary["description"] as? String ?? "No Description"
             
             let urlString = dictionary["url"] as! String
-            let baseURLString = "https://s3-us-west-2.amazonaws.com/android-task/"
-            url = URL(string: baseURLString + urlString)!
+            url = URL(string: urlString)!
             
             //convert milliseconds epoch time to date and time
             let uploadedAtNum = dictionary["uploadedAt"] as! TimeInterval
