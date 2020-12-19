@@ -28,7 +28,7 @@ class File{
             // US English Locale (en_US)
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = DateFormatter.Style.medium
-            dateFormatter.timeStyle = DateFormatter.Style.medium
+            dateFormatter.timeStyle = DateFormatter.Style.none
             dateFormatter.locale = NSLocale.current
             let dateString = dateFormatter.string(from: date) // Dec 18, 2020
             

@@ -41,6 +41,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		525720AD258DD16B005F4B73 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				529A3275258DB9A800EE8ECB /* File.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		525720AE258DD179005F4B73 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				529A326F258DB29500EE8ECB /* FilesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		525720AF258DD18E005F4B73 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				529A3272258DB8B800EE8ECB /* FilesTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		529A324D258DB21B00EE8ECB = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +84,15 @@
 		529A3258258DB21B00EE8ECB /* FileView */ = {
 			isa = PBXGroup;
 			children = (
+				525720AF258DD18E005F4B73 /* Views */,
+				525720AE258DD179005F4B73 /* ViewControllers */,
+				525720AD258DD16B005F4B73 /* Models */,
 				529A3259258DB21B00EE8ECB /* AppDelegate.swift */,
 				529A325B258DB21B00EE8ECB /* SceneDelegate.swift */,
 				529A325F258DB21B00EE8ECB /* Main.storyboard */,
 				529A3262258DB21C00EE8ECB /* Assets.xcassets */,
 				529A3264258DB21C00EE8ECB /* LaunchScreen.storyboard */,
 				529A3267258DB21C00EE8ECB /* Info.plist */,
-				529A326F258DB29500EE8ECB /* FilesViewController.swift */,
-				529A3272258DB8B800EE8ECB /* FilesTableViewCell.swift */,
-				529A3275258DB9A800EE8ECB /* File.swift */,
 			);
 			path = FileView;
 			sourceTree = "<group>";
